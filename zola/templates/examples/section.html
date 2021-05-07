@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    {% for post in section.pages %}
+    <div class="col-md-4">
+      <img class="image" src="{{ post.extra.screenshot }}" width="100%"></img>
+      <div>
+	{{ post.title }}
+      </div>
+      <div class="float-right">
+        <a href="{{ post.extra.gh_source}}">
+          <img src="/GitHub-Mark-32px.png" width="16px">
+        </a>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+  
+{% endblock content %}

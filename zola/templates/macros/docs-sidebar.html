@@ -1,0 +1,28 @@
+{% macro docs_sidebar(current_section) %}
+<!-- <script> -->
+<!--   function hide_sidebar() { -->
+<!--      document.getElementById("blog-sidebar").style.display = "none"; -->
+<!-- } -->
+<!-- </script> -->
+<style>
+  .toggle_button {
+      position: absolute;
+      bottom: 0;
+  }
+</style>
+<div id="blog-sidebar" class="col-lg-5 col-xl-4 docs-sidebar">
+  <nav class="docs-links" aria-label="Main navigation">
+    {% for subsection in page.toc %}
+	  <h3>{{ subsection.title }}</h3>
+	  <ul class="list-unstyled">
+	    {% for page in subsection.children %}                           
+	    <li><a class="docs-link{% if current_url == page.permalink %} active{% endif %}" href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+	    {% endfor %}
+	  </ul>
+          {% endfor %}			
+  </nav>
+  <!-- <div class="clearfix"> -->
+  <!--   <button type="button" class="toggle_button float-left" onclick="hide_sidebar()">Hide sidebar</button> -->
+  <!-- </div> -->
+</div>
+{% endmacro %}
